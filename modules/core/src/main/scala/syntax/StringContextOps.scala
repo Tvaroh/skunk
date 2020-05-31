@@ -15,7 +15,7 @@ import skunk.util.Origin
 class StringContextOps private[skunk](sc: StringContext) {
   void(sc)
 
-  def sql(argSeq: Any*): Any =
+  def sql[A](argSeq: Any*): Fragment[A] =
     macro StringContextOps.StringOpsMacros.sql_impl
 
   def id(): Identifier =
